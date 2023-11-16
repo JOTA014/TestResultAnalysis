@@ -45,3 +45,6 @@ We can execute the program using a json file with a structure just like the one 
 - [This screenshot](https://drive.google.com/file/d/1LJx8ZZfgYFwlVORk1FeB5-Zo4WnOh-sd/view?usp=sharing) shows the console app output
 
 - [This screenshot](https://drive.google.com/file/d/1mj1Ls0ZanYWfkXYw3xaoPdEAh32W9bSb/view?usp=sharing) shows the generated file with the above operation
+
+## Challenge
+[This is a copy of the instuctions I received over email](https://drive.google.com/file/d/1djJNZs-jCCDjDiUkKXFPH3kAo_9tzocY/view?usp=sharing)
