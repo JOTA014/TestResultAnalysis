@@ -39,7 +39,15 @@ This is the JSon structure I assumed for this project. The execution time is cal
 ```
 ## Input Example
 
-We can execute the program using a json file with a structure just like the one in the [json structure section](##Json-Structure)
+We can execute the program using a json file with a structure just like the one in the [json structure section](##Json-Structure) using a path to the file for example "C:\Users\User\Folder\Example.json".
+
+We can also run it with a single line json text like this one:
+
+```json
+[    {        "id": 1000,        "name": "Successful login",        "testResult": "Pass",        "executionTime": 108,        "timeStamp": "2023-11-15T13:38:01Z"    },    {        "id": 1001,        "name": "Login with existing user, wrong password",        "testResult": "Fail",        "executionTime": 105,        "timeStamp": "2023-11-15T13:38:01Z"    },    {        "id": 1002,        "name": "Login with non existing user",        "testResult": "Pass",        "executionTime": 1,        "timeStamp": "2023-11-15T13:38:01Z"    },    {        "id": 1003,        "name": "Login with blocked user",        "testResult": "Pass",        "executionTime": 700,        "timeStamp": "2023-11-15T13:38:01Z"    },    {        "id": 1004,        "name": "Login no user, no password",        "testResult": "Fail",        "executionTime": 95,        "timeStamp": "2023-11-15T13:38:01Z"    },    {        "id": 1005,        "name": "Login with user, no password",        "testResult": "Pass",        "executionTime": 13,        "timeStamp": "2023-11-15T13:38:01Z"    },    {        "id": 1006,        "name": "Login with password, no user",        "testResult": "Pass",        "executionTime": 12,        "timeStamp": "2023-11-15T13:38:01Z"    },    {        "id": 1007,        "name": "SQL Injection attempt",        "testResult": "Pass",        "executionTime": 1000,        "timeStamp": "2023-11-15T13:38:01Z"    }]
+
+```
+
 ## Evidence
 
 - [This screenshot](https://drive.google.com/file/d/1LJx8ZZfgYFwlVORk1FeB5-Zo4WnOh-sd/view?usp=sharing) shows the console app output

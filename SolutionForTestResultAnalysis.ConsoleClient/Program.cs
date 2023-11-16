@@ -10,7 +10,7 @@ namespace SolutionForTestResultAnalysis
             Execute();
         }
 
-        private static void Execute()
+        static void Execute()
         {
             while (true)
             {
@@ -57,13 +57,13 @@ namespace SolutionForTestResultAnalysis
             }
         }
 
-        private static void WaitAndClear()
+        static void WaitAndClear()
         {
             Console.ReadKey();
             Console.Clear();
         }
 
-        private static string GetInputFilePath()
+        static string GetInputFilePath()
         {
             Console.WriteLine("Enter the file's path:");
             var path = Console.ReadLine();
@@ -83,7 +83,7 @@ namespace SolutionForTestResultAnalysis
             return Console.ReadLine();
         }
 
-        private static string ProcessFileAndShowResults(string json, string outputPath)
+        static string ProcessFileAndShowResults(string json, string outputPath)
         {
             var processor = new TestRunAnalyzer();
             if(!FileHelper.IsValidJson(json))
@@ -96,7 +96,7 @@ namespace SolutionForTestResultAnalysis
             return result;
         }
 
-        private static void PrintMetrics(TestRunAnalyzer processor)
+        static void PrintMetrics(TestRunAnalyzer processor)
         {
             var metrics = processor.GetType()
                 .GetProperties()
@@ -107,7 +107,7 @@ namespace SolutionForTestResultAnalysis
             Console.WriteLine(Environment.NewLine);
         }
 
-        private static string GetOutputPath()
+        static string GetOutputPath()
         {
             string outputPath;
             do
@@ -132,7 +132,7 @@ namespace SolutionForTestResultAnalysis
             return outputPath;
         }
 
-        private static string GetOutputPathFromUserInput()
+        static string GetOutputPathFromUserInput()
         {
             Console.WriteLine("Please enter the path to save the output file");
             var userInput = Console.ReadLine();
@@ -147,7 +147,7 @@ namespace SolutionForTestResultAnalysis
             }
         }
 
-        private static int ProcessInput()
+        static int ProcessInput()
         {
             Console.WriteLine("Choose the numeric option you want to execute, then press enter");
             var input = Console.ReadLine();
