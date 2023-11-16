@@ -10,6 +10,9 @@ namespace SolutionForTestResultAnalysis
             Execute();
         }
 
+        /// <summary>
+        /// Executes the whole flow inside a never ending loop
+        /// </summary>
         static void Execute()
         {
             while (true)
@@ -57,12 +60,19 @@ namespace SolutionForTestResultAnalysis
             }
         }
 
+        /// <summary>
+        /// Utility method to avoid repeating these 2 lines
+        /// </summary>
         static void WaitAndClear()
         {
             Console.ReadKey();
             Console.Clear();
         }
 
+        /// <summary>
+        /// Gets the input file (json) path when the user picks ExecuteFromFile option 
+        /// </summary>
+        /// <returns>A string representation of the json path</returns>
         static string GetInputFilePath()
         {
             Console.WriteLine("Enter the file's path:");
@@ -77,12 +87,22 @@ namespace SolutionForTestResultAnalysis
             return path;
         }
 
+        /// <summary>
+        /// Gets the json file directly from the console, always the input is in a single line
+        /// </summary>
+        /// <returns>A string representation of the input json</returns>
         static string GetInputFromConsole()
         {
             Console.WriteLine("Enter the json in one line");
             return Console.ReadLine();
         }
 
+        /// <summary>
+        /// Instanciate TestRunAnalyzer which contains the actual file processing
+        /// </summary>
+        /// <param name="json">string representation of the input json</param>
+        /// <param name="outputPath">Path where the final CSV file will be located</param>
+        /// <returns>Returns the CSV filepath including the filename</returns>
         static string ProcessFileAndShowResults(string json, string outputPath)
         {
             var processor = new TestRunAnalyzer();
@@ -96,6 +116,10 @@ namespace SolutionForTestResultAnalysis
             return result;
         }
 
+        /// <summary>
+        /// Prints all the metrics calculared in ProcessFileAndShowResults method
+        /// </summary>
+        /// <param name="processor"></param>
         static void PrintMetrics(TestRunAnalyzer processor)
         {
             var metrics = processor.GetType()
@@ -107,6 +131,11 @@ namespace SolutionForTestResultAnalysis
             Console.WriteLine(Environment.NewLine);
         }
 
+        /// <summary>
+        /// Gets the output path to locate the final CSV. Allows to select from a default path
+        /// inside the running directory of this program, or a user input path
+        /// </summary>
+        /// <returns>A string path where the CSV file will be located</returns>
         static string GetOutputPath()
         {
             string outputPath;
@@ -132,6 +161,10 @@ namespace SolutionForTestResultAnalysis
             return outputPath;
         }
 
+        /// <summary>
+        /// Gets the final CSV location directly from the user input
+        /// </summary>
+        /// <returns>A string path where the CVS will be located</returns>
         static string GetOutputPathFromUserInput()
         {
             Console.WriteLine("Please enter the path to save the output file");
@@ -147,6 +180,10 @@ namespace SolutionForTestResultAnalysis
             }
         }
 
+        /// <summary>
+        /// Gets and validates user input. Specifically at the "select option" momment when the application is just starting
+        /// </summary>
+        /// <returns></returns>
         static int ProcessInput()
         {
             Console.WriteLine("Choose the numeric option you want to execute, then press enter");
@@ -155,6 +192,9 @@ namespace SolutionForTestResultAnalysis
             return parsedOption;
         }
 
+        /// <summary>
+        /// Auxiliar method to print all options inside the ExecutionOptions enum
+        /// </summary>
         static void PrintOptions()
         {
             var array = (ExecutionOptions[])Enum.GetValues(typeof(ExecutionOptions));
@@ -162,11 +202,21 @@ namespace SolutionForTestResultAnalysis
             Console.WriteLine(options);
         }
 
+        /// <summary>
+        /// Auxiliar method to Pascal property names separated by space every time there is a capital letter
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns>A string, space separated, property name</returns>
         static string GetSpacedText(string text)
         {
             return string.Join("", text.Select((x, i) => char.IsUpper(x) && i != 0 ? $" {x}" : x.ToString()));
         }
 
+        /// <summary>
+        /// Validates ExecutionOptions
+        /// </summary>
+        /// <param name="option"></param>
+        /// <returns></returns>
         static int ValidateOption(string option)
         {
             var isNumber = int.TryParse(option, out int numericOption);

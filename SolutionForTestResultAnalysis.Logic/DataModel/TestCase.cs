@@ -2,6 +2,9 @@
 
 namespace SolutionForTestResultAnalysis.Logic.DataModel
 {
+    /// <summary>
+    /// Data model for the deseralization operation
+    /// </summary>
     public class TestCase
     {
         public int Id { get; set; }
