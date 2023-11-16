@@ -114,23 +114,19 @@ namespace SolutionForTestResultAnalysis
             do
             {
                 Console.WriteLine("Do you want to use the default path to locate the output file? (Y/N)");
-                var option = Console.ReadLine();
 
-                outputPath = option.ToUpper() switch
+                outputPath = Console.ReadLine() switch
                 {
                     "Y" => Directory.GetCurrentDirectory(),
                     "N" => GetOutputPathFromUserInput(),
                     _ => InvalidSelection()
                 };
-
-                //outputPath = option.Equals("Y", StringComparison.CurrentCultureIgnoreCase)
-                //    ? Directory.GetCurrentDirectory()
-                //    : GetOutputPathFromUserInput();
             } while (outputPath is null);
 
             string InvalidSelection()
             {
-                Console.WriteLine($"The selected option is not valid{PartialRetryText}");
+                Console.WriteLine($"The selected option is not valid, lets try again");
+
                 return null;
             }
 
